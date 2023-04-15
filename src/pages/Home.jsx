@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
 	<AnimatePresence>
-		{snap.intro && (
+		{snap.intro && snap.ball && (
 			<motion.section className='home' {...slideAnimation('left')}>
 				<motion.header {...slideAnimation('down')}>
 					<img 
@@ -38,14 +38,14 @@ const Home = () => {
 						<CustomButton
 						 type='filled' 
 						 title='Customize it'
-						 handleClick={() => state.intro = false}
+						 handleClick={() => { state.intro = false; state.ball = false}}
 						 customStyles='w-fit px-4 py-2.5 font-bold text-sm'
 						/>
 					</motion.div>
 				</motion.div>
 			</motion.section>
 		)}
-		<Ball/>
+		{snap.ball && <Ball/>}
 	</AnimatePresence>
   )
 }
