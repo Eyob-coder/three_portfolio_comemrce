@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSnapshot } from 'valtio'
-
-
+import Ball from './Ball'
 import state from '../store'
 import { CustomButton } from '../components';
 import {
@@ -46,6 +45,7 @@ const Home = () => {
 				</motion.div>
 			</motion.section>
 		)}
+		<Ball/>
 	</AnimatePresence>
   )
 }
