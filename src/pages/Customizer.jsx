@@ -40,7 +40,7 @@ const Customizer = () => {
 								<CustomButton
 								type='filled'
 								title='Go back'
-								handleClick= {() => state.intro = true }
+								handleClick= {() => {state.intro = true; state.ball =true} }
 								customStyles='w-fit px-4 py-2.5 font-bold text-sm'
 								/>
 				</motion.div>

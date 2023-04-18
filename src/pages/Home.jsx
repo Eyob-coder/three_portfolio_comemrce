@@ -33,19 +33,22 @@ const Home = () => {
 						{...headContentAnimation}
 						className='flex flex-col gap-5'
 					>
-						<p className='max-w-md font-normal text-grey-600 text-base'>lets design something great <strong>together</strong></p>
+						<p className='max-w-md font-normal text-white-600 text-base'>lets design something great <strong>together</strong></p>
 
 						<CustomButton
 						 type='filled' 
 						 title='Customize it'
-						 handleClick={() => state.intro = false}
+						 handleClick={() => { state.ball = false; state.intro = false }}
 						 customStyles='w-fit px-4 py-2.5 font-bold text-sm'
 						/>
+						
 					</motion.div>
 				</motion.div>
+				
 			</motion.section>
 		)}
-		<Ball/>
+		
+	{snap.ball && <Ball/>}
 	</AnimatePresence>
   )
 }
