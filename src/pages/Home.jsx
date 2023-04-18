@@ -14,6 +14,8 @@ const Home = () => {
 	const snap = useSnapshot(state);
 
   return (
+	<main>
+		<div className="ani">
 	<AnimatePresence>
 		{snap.intro && snap.ball && (
 			<motion.section className='home' {...slideAnimation('left')}>
@@ -26,7 +28,7 @@ const Home = () => {
 				</motion.header>
 
 				<motion.div className='home-content' {...headContainerAnimation}>
-					<motion.div {...headTextAnimation}>
+					<motion.div {...headTextAnimation} className='head-texts'>
 						<h1 className="head-text">LET's <br className='xl:block hidden'/> DO IT</h1>
 					</motion.div>
 					<motion.div 
@@ -47,6 +49,15 @@ const Home = () => {
 		)}
 		{snap.ball && <Ball/>}
 	</AnimatePresence>
+	</div>
+		<nav>
+      <a href="/">SPHERE</a>
+      <ul>
+        <li>Explore</li>
+        <li>Create</li>
+      	</ul>
+    	</nav>
+	</main>
   )
 }
 
