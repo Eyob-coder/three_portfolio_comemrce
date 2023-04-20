@@ -19,6 +19,38 @@ html {
   @apply relative w-full h-screen overflow-hidden;
 }
 
+
+
+.ani {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+nav {
+  color: white;
+  z-index: 2;
+  position: relative;
+  padding: 4rem 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 4rem;
+}
+
+
+
 .home {
   width: fit-content;
   height: 100%;
@@ -61,12 +93,25 @@ html {
   }
 }
 
+/* .head-texts {
+  display: flex;
+} */
+
 .head-text {
   font-weight: 900;
   font-size: 6rem;
   line-height: 7rem;
-  color: #000;
+  color: #fff;
 }
+
+
+/* .head-text1 {
+  font-weight: 900;
+  font-size: 6rem;
+  line-height: 7rem;
+  color: #fff;
+  margin-left: 40rem;
+} */
 
 @media (min-width: 1280px) {
   .head-text {
