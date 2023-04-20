@@ -6,6 +6,7 @@ import { styles } from "../styles";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import gsap from 'gsap';
 import { Canvas, useFrame } from 'react-three-fiber';
+// import StarsCanvas from '../components/canvas/Stars'
 
 function Lamp() {
   return (
@@ -105,17 +106,6 @@ function Ball() {
     tl.fromTo('nav', {y: '-100%'}, {y: '0%'});
     tl.fromTo(".title", {opacity: 0}, {opacity: 1});
 
-    // Mouse animation color setup
-    let mouseDown = false;
-    let rgb = [];
-
-    window.addEventListener('mousemove', (e) => {
-  if (mouseDown) {
-    rgb = [      Math.round((e.pageX / sizes.width) * 255),      Math.round((e.pageY / sizes.height) * 255),      150    ];
-    material.color.setRGB(rgb[0] / 255, rgb[1] / 255, rgb[2] / 255);
-  }
-});
-
 // Update background color based on ambient light position
 const updateBackgroundColor = () => {
   const ballWorldPos = new THREE.Vector3();
@@ -128,8 +118,10 @@ const updateBackgroundColor = () => {
   const maxDelta = Math.max(deltaX, deltaY);
   const maxDeltaNormalized = maxDelta / Math.max(screenCenterX, screenCenterY);
   const backgroundColor = new THREE.Color().setHSL(0.6, 1, 0.8 - maxDeltaNormalized * 0.3);
+  backgroundColor.set(backgroundColor.r, backgroundColor.g, backgroundColor.b, 0);
   scene.background = backgroundColor;
 };
+
 
 // Update ball position
 const updateBallPosition = () => {
@@ -151,11 +143,9 @@ render();
 }, []);
 
 return (
-<div className="relative">
-  <div className='absolute'>
-  <h1>Welcome To Our Portifolio <br /> Enjoy Your Stay</h1>
-  </div>
-<canvas ref={canvasRef} />
+<div className="absolute">
+<Canvas ref={canvasRef} />
+{/* <StarsCanvas /> */}
 </div>
 );
 }
